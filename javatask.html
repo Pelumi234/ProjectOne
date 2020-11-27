@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            function submitform(){
+            document.getElementById("data").innerHTML = "";
+            var title = document.getElementById("title").value;
+            var fname = document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            var nationality = document.getElementById("nationality").value;
+            var pnumber = document.getElementById("pnumber").value;
+            var gender = document.getElementById("gender").value;
+            var email = document.getElementById("email").value;
+            if (title !== ""){
+            if (fname !== ""){
+            if (lname !== ""){
+            if (nationality !== ""){
+            if (pnumber !== "" && pnumber.length === 11 && parseInt (pnumber) > 0 ){
+            if (gender.toLowerCase() === "male" || gender.toLowerCase() === "female"){
+            var sp = email.split ("@");
+            var spp = email.split (".");
+            if (email !== "" && sp.length === 2 && spp.length >= 2){
+            var res = '<h1>SUBMITTED DATA</h1><br><p>Title: '+title+'</p><br><p>First Name: '+fname+'</p><br><p>Last Name: '+lname+'</p><br><p>Nationality: '+nationality+'</p><br><p>Phone Number: '+pnumber+'</p><br><p>Gender: '+gender+'</p><br><p>Email Address: '+email+'</p>';
+            document.getElementById("data").innerHTML = res;
+            document.getElementById("title").value = "";
+            document.getElementById("fname").value = "";
+            document.getElementById("lname").value = "";
+            document.getElementById("nationality").value = "";
+            document.getElementById("pnumber").value = "";
+            document.getElementById("gender").value = "";
+            document.getElementById("email").value ="";
+
+            }else {
+            alert ("Email address is invalid!");
+            }
+            }else {
+            alert ("Gender field must be either male or female!");
+            }
+            }else {
+            alert ("Phone number field is invalid!");
+            }
+            }else {
+            alert ("Nationality field is required!");
+            }
+            }else {
+            alert ("Last name field is required!");
+            }
+            }else {
+            alert ("First name field is required!");
+            }
+            }else {
+            alert ("The title field is required");
+            }
+            }
+        </script> 
+        <style>
+         h2{
+            background-color:chocolate;
+         }
+         form{
+            background-color: chocolate;
+            padding-bottom: 10px;
+            font-style: Times New Roman;
+         }
+         #data{
+             width: 100%;
+             min-height: 200px;
+             border: 2px solid saddlebrown;
+         }
+
+         #data>h1{
+             color: rebeccapurple;
+         }
+
+         #data>p{
+             color:saddlebrown;
+         }
+        </style>
+    </head>
+    <body>
+        <h2>Basic User Form</h2>
+        <form> <br>
+            <label for="Title">Title</label> <br>
+            <input type="text" id="title" placeholder="Miss/Mrs/Dr/Prof/Mr" required> <br> <br>
+
+            <label for="First Name">First Name</label><br>
+            <input type="text" id="fname" placeholder="First Name" required> <br> <br>
+
+            <label for="Last Name">Last Name</label> <br>
+            <input type="text" id="lname" placeholder="Last Name" required> <br> <br>
+
+            <label for="Nationality">Nationality</label> <br>
+            <input type="text" id="nationality" requied> <br> <br>
+
+            <label for="Phone Number">Phone Number</label> <br>
+            <input type="number" id="pnumber" > <br> <br>
+
+            <label for="Gender">Gender</label> <br>
+            <input type="text" id="gender" > <br> <br>
+
+            <label for="Email">Email</label> <br>
+            <input type="email" id="email" placeholder="Your email"> <br> <br>
+        </form> <br><br>
+        <button onclick="submitform()">Submit</button>
+    
+         <div id="data"> </div>
+
+    </body>
+</html>
